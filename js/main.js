@@ -9,22 +9,37 @@ console.log(km);
 const age = parseInt(prompt(`Quanti anni hai?`));
 console.log(age);
 
-// Calcoliamo il prezzo del biglietto in base ai chilometri che l'utente vuole percorrere
-let price = km * 0.21;
-console.log(price);
-let finalprice = price;
-
-if(age < 18){
-    let discountprice = 20;
-
-    discountprice = price * discountprice / 100;
-    finalprice = price - discountprice;
+if(isNaN(km) || isNaN(age)){
+    error = true;
+    alert(`Dati non validi`)
 }
-else if (age > 65){
-    let discountprice = 40;
-
-    discountprice = price * discountprice / 100;
-    finalprice = price - discountprice;
+else{
+    error = false;
 }
-console.log(finalprice);
-generatedprice.innerText = `Il prezzo del tuo biglietto è: ` + finalprice.toFixed(2) + ` €`;
+    // Calcoliamo il prezzo del biglietto in base ai chilometri che l'utente vuole percorrere
+    let price = km * 0.21;
+    console.log(price);
+    let finalprice = price;
+    if(!error){
+
+        if(age < 18){
+            let discountprice = 20;
+            
+            discountprice = price * discountprice / 100;
+            finalprice = price - discountprice;
+        }
+        else if (age > 65){
+        let discountprice = 40;
+        
+        discountprice = price * discountprice / 100;
+        finalprice = price - discountprice;
+        }
+    console.log(finalprice);
+    generatedprice.innerText = `Il prezzo del tuo biglietto è: ` + finalprice.toFixed(2) + ` €`;
+    } 
+    
+    
+    
+    
+    
+    
